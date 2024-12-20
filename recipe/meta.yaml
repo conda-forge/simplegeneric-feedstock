@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   number: 2
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
@@ -31,7 +31,7 @@ test:
 
 about:
   home: http://cheeseshop.python.org/pypi/simplegeneric
-  license: Zope Public
+  license: ZPL-2.1
   summary: "Simple generic functions (similar to Python's own len(), pickle.dump(), etc.)"
 
 extra:
