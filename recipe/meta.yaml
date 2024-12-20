@@ -11,25 +11,27 @@ source:
 
 build:
   noarch: python
-  number: 1
-  script: python -m pip install --no-deps --ignore-installed .
+  number: 2
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - pip
-    - python
+    - python {{ python_min }}
     - setuptools
 
   run:
-    - python
+    - python >={{ python_min }}
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - simplegeneric
 
 about:
   home: http://cheeseshop.python.org/pypi/simplegeneric
-  license: Zope Public
+  license: ZPL-2.1
   summary: "Simple generic functions (similar to Python's own len(), pickle.dump(), etc.)"
 
 extra:
